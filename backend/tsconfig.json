@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es2022",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+
+    // Node.js 백엔드용 추가
+    "lib": ["es2022"],
+    "types": ["node"],
+
+    // 빌드 출력 설정
+    "outDir": "./dist",
+    "rootDir": "./src"
+  }
+}
