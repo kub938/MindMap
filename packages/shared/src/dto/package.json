@@ -1,0 +1,6 @@
+{
+  "name": "@repo/dto",
+  "exports": {
+    "./user": "./user.ts"
+  }
+}
