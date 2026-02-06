@@ -11,12 +11,11 @@ export class UserRepository {
     private readonly db: NodePgDatabase,
   ) {}
 
-  async findById(id: number) {
+  async getUserInfo(id: number) {
     return this.db
       .select()
       .from(users)
       .where(eq(users.id, id))
-      .limit(1)
       .then((rows) => rows[0] ?? null);
   }
 }
