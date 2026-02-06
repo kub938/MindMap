@@ -1,0 +1,6 @@
+{
+  "name": "@repo/shared",
+  "exports": {
+    "./dto/*": "./dto/*.ts"
+  }
+}
