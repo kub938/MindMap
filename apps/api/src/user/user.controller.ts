@@ -1,12 +1,23 @@
-import { Controller, Get, Param } from "@nestjs/common";
+import { Controller, Get, Param, Post, Req, Res } from "@nestjs/common";
+import type { Response } from "express";
 import { UserService } from "./user.service";
 
-@Controller("users")
+interface AuthenticatedRequest extends Request {
+  user: { userId: number };
+}
+
+@Controller("user")
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
-  @Get(":id")
-  async getUser(@Param("id") id: number) {
-    return this.userService.getUser(id);
+  @Get("profile")
+  async getUser(@Req() req: AuthenticatedRequest) {
+    return this.userService.getUserInfo(req.user.userId);
+  }
+
+  @Post("logout")
+  async logout(@Res() res: Response) {
+    res.clearCookie("accessToken");
+    return res.status(200).send({ message: "로그아웃 성공" });
   }
 }
