@@ -35,7 +35,9 @@ export class AuthRepository {
     };
 
     return {
-      accessToken: this.jwtService.sign(payload),
+      accessToken: this.jwtService.sign(payload, {
+        expiresIn: "10h",
+      }),
     };
   }
 }
