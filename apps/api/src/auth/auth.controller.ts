@@ -26,7 +26,7 @@ export class AuthController {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production", // HTTPS에서만 전송
       sameSite: "lax", // CSRF 방어
-      maxAge: 36000000,
+      maxAge: 1000 * 60 * 60 * 10, // 10시간
     });
 
     res.redirect(`${process.env.CLIENT_URL}`);
