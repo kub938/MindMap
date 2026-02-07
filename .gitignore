@@ -23,3 +23,7 @@ out/
 # 로그 파일
 *.log
 logs/
+
+
+#bruno 관련
+apps/api/Mindmap_Bruno/collection.bru
