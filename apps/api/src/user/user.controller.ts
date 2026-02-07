@@ -4,10 +4,6 @@ import { UserService } from "./user.service";
 import { User } from "src/decorators/user.decorator";
 import type { AuthUser } from "src/auth/interface/authUser";
 
-interface AuthenticatedRequest extends Request {
-  user: { userId: number };
-}
-
 @Controller("user")
 export class UserController {
   constructor(private readonly userService: UserService) {}
