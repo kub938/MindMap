@@ -1,6 +1,8 @@
 import { Controller, Get, Param, Post, Req, Res } from "@nestjs/common";
 import type { Response } from "express";
 import { UserService } from "./user.service";
+import { User } from "src/decorators/user.decorator";
+import type { AuthUser } from "src/auth/interface/authUser";
 
 interface AuthenticatedRequest extends Request {
   user: { userId: number };
@@ -11,8 +13,8 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Get("profile")
-  async getUser(@Req() req: AuthenticatedRequest) {
-    return this.userService.getUserInfo(req.user.userId);
+  async getUser(@User() user: AuthUser) {
+    return this.userService.getUserInfo(user.id);
   }
 
   @Post("logout")
