@@ -1,0 +1,20 @@
+meta {
+  name: node_sync
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://localhost:3000/api/v1/mindmap/:mindmapId/sync
+  body: none
+  auth: inherit
+}
+
+params:path {
+  mindmapId: 46
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
