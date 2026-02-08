@@ -1,0 +1,72 @@
+meta {
+  name: node_event_process
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://localhost:3000/api/v1/mindmap/:mindmapId/node
+  body: json
+  auth: inherit
+}
+
+params:path {
+  mindmapId: 46
+}
+
+body:json {
+  {
+    "nodeEvents": [
+      {
+        "type": "ADD",
+        "node": {
+          "mindmapId": 5,
+          "parentId": null,
+          "clientId": 11,
+          "content": "test",
+          "direction": "root",
+          "order": 4
+        }
+      },
+      {
+        "type": "MOVE",
+        "id": "5",
+        "to": {
+          "parentId": null,
+          "order": 10
+        }
+      },
+  //     {
+  //       "type": "DELETE",
+  //       "nodes": [
+  //         {
+  //           "id": 3,
+  //           "mindmapId": 4,
+  //           "parentId": null,
+  //           "clientId": 11,
+  //           "content": "test",
+  //           "direction": "root",
+  //           "order": 4
+  //         }
+  //       ]
+  //     },
+      {
+        "type": "UPDATE",
+        "id": 10,
+        "after": 
+          {
+            "parentId": 5,
+            "content": "변경되나 테스트점",
+            "direction": "left",
+            "order": 1
+          }
+        
+      }
+    ]
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
