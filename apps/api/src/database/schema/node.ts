@@ -7,6 +7,7 @@ import {
   real,
   pgEnum,
   foreignKey,
+  uuid,
 } from "drizzle-orm/pg-core";
 import { mindmaps } from "./mindmap";
 
@@ -22,7 +23,7 @@ export const nodes = pgTable(
     id: serial("id").primaryKey(),
     mindmapId: integer("mindmap_id").notNull(),
     parentId: integer("parent_id"),
-    clientId: integer("client_id"),
+    clientId: uuid("client_id").notNull(),
     content: text("content").notNull(),
     direction: nodeDirectionEnum("direction").notNull(),
     order: real("order"),

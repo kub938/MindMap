@@ -1,0 +1,35 @@
+meta {
+  name: move_node_event
+  type: http
+  seq: 7
+}
+
+post {
+  url: http://localhost:3000/api/v1/mindmap/:mindmapId/node
+  body: json
+  auth: inherit
+}
+
+params:path {
+  mindmapId: 46
+}
+
+body:json {
+  {
+    "nodeEvents": [
+      {
+        "type": "MOVE",
+        "id": "5",
+        "to": {
+          "parentId": null,
+          "order": 10
+        }
+      }
+    ]
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
