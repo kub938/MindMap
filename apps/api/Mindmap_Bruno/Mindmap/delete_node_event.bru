@@ -1,0 +1,41 @@
+meta {
+  name: delete_node_event
+  type: http
+  seq: 8
+}
+
+post {
+  url: http://localhost:3000/api/v1/mindmap/:mindmapId/node
+  body: json
+  auth: inherit
+}
+
+params:path {
+  mindmapId: 46
+}
+
+body:json {
+  {
+    "nodeEvents": [
+      {
+        "type": "DELETE",
+        "nodes": [
+          {
+            "id": 3,
+            "mindmapId": 4,
+            "parentId": null,
+            "clientId": 11,
+            "content": "test",
+            "direction": "root",
+            "order": 4
+          }
+        ]
+      }
+    ]
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
