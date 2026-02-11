@@ -2,6 +2,6 @@
   "name": "@repo/config",
   "version": "0.0.1",
   "exports": {
-    "./ts-base": "./tsconfig.base.json"
+    "./*": "./*"
   }
 }
