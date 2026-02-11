@@ -1,4 +1,8 @@
-import { Injectable } from "@nestjs/common";
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from "@nestjs/common";
 import { MindmapRepository } from "../repository/mindmap.repository";
 import { MindmapNodeProcessRequestDto } from "../dto/mindmap.dto";
 import { NodeEvent, UpdateEvent } from "@repo/shared/dto/mindmap";
@@ -49,10 +53,11 @@ export class MindmapService {
         resultNode = await this.mindmapRepository.deleteNodes(event.nodes);
         break;
       default:
-        throw new Error("Unknown event type");
+        throw new BadRequestException("Unknown event type");
     }
 
-    if (resultNode === null) throw new Error("resultNode is null");
+    if (resultNode[0] === null || resultNode[0] === undefined)
+      throw new NotFoundException("resultNode is null | undefined");
 
     const res = {
       id: resultNode[0].id,

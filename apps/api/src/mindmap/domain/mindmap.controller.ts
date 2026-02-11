@@ -33,11 +33,8 @@ export class MindmapController {
     return this.MindmapService.get(user.id, Number(params.mindmapId));
   }
 
-  @Post(":mindmapId/node")
-  async nodeEventProcess(
-    @Param() params: string,
-    @Body() body: MindmapNodeProcessRequestDto,
-  ) {
+  @Post("node")
+  async nodeEventProcess(@Body() body: MindmapNodeProcessRequestDto) {
     return this.MindmapService.process(body);
   }
 }
