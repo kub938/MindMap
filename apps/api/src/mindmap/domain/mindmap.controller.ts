@@ -1,5 +1,9 @@
 import { Body, Controller, Get, Param, Post } from "@nestjs/common";
-import { MindmapCreateRequestDto } from "../dto/mindmap.dto";
+import {
+  MindmapCreateRequestDto,
+  MindmapGetRequestDto,
+  MindmapNodeProcessRequestDto,
+} from "../dto/mindmap.dto";
 import { MindmapService } from "./mindmap.service";
 import { User } from "src/decorators/user.decorator";
 import type { AuthUser } from "src/auth/interface/authUser";
@@ -24,8 +28,16 @@ export class MindmapController {
   @Get(":mindmapId")
   async getMindmap(
     @User() user: AuthUser,
-    @Param() params: { mindmapId: string },
+    @Param() params: MindmapGetRequestDto,
   ) {
     return this.MindmapService.get(user.id, Number(params.mindmapId));
+  }
+
+  @Post(":mindmapId/node")
+  async nodeEventProcess(
+    @Param() params: string,
+    @Body() body: MindmapNodeProcessRequestDto,
+  ) {
+    return this.MindmapService.process(body);
   }
 }
