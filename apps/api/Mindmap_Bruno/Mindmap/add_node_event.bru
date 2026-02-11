@@ -5,13 +5,9 @@ meta {
 }
 
 post {
-  url: http://localhost:3000/api/v1/mindmap/:mindmapId/node
+  url: http://localhost:3000/api/v1/mindmap/node
   body: json
   auth: inherit
-}
-
-params:path {
-  mindmapId: 46
 }
 
 body:json {
@@ -27,15 +23,15 @@ body:json {
           "direction": "root",
           "order": 4
         }
-      },
-      {
-        "type": "MOVE",
-        "id": "5",
-        "to": {
-          "parentId": null,
-          "order": 10
-        }
-      },
+      }
+  //     {
+  //       "type": "MOVE",
+  //       "id": "5",
+  //       "to": {
+  //         "parentId": null,
+  //         "order": 10
+  //       }
+  //     },
   //     {
   //       "type": "DELETE",
   //       "nodes": [
