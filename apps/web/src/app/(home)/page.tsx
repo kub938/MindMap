@@ -31,7 +31,7 @@ export default function Home() {
           </div>
 
           {/* hover시 col-span-2개 나오게 */}
-          <div className="mt-20 border md:grid grid-cols-3 gap-7 ">
+          <div className="mt-20 md:grid grid-cols-3 gap-7 ">
             {/* 클릭 가능하게 만들어서 해당 설명으로 갈 수 있게 만듬 */}
             <div className="border py-6 px-6 rounded-xl  ">
               <div className="mb-20">손쉬운 사용</div>
@@ -47,8 +47,8 @@ export default function Home() {
               <div>자체 파일 형식을 통한 다운 가능</div>
             </div>
             <div className="border p-6 rounded-xl">
-              <div>??? 뭐였지</div>
-              <div>기억이 안남</div>
+              <div> </div>
+              <div></div>
             </div>
           </div>
         </section>
