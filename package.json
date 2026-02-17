@@ -9,11 +9,14 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
-    "turbo": "latest",
-    "prettier": "^3.0.0"
+    "prettier": "^3.0.0",
+    "turbo": "latest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.28.2"
+  "packageManager": "pnpm@10.28.2",
+  "dependencies": {
+    "lucide-react": "^0.569.0"
+  }
 }
