@@ -15,7 +15,7 @@ export default function Home() {
               amet consectetur adipisicing elit.
             </p>
             <Button type="black">
-              <Link href="/new">Try this</Link>
+              <Link href="/mindmap/new">Try this</Link>
             </Button>
           </div>
         </section>
