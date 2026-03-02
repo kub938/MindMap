@@ -27,3 +27,6 @@ logs/
 
 #bruno 관련
 apps/api/Mindmap_Bruno/collection.bru
+
+#ssh
+infra/.ssh
