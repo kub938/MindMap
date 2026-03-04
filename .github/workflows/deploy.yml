@@ -41,7 +41,9 @@ jobs:
           IMAGE_TAG: ${{ github.sha }}
         run: |
           docker build -t $ECR_REGISTRY/${{ secrets.ECR_WEB_REPOSITORY }}:$IMAGE_TAG -f apps/web/Dockerfile .
+          docker tag $ECR_REGISTRY/${{ secrets.ECR_WEB_REPOSITORY }}:$IMAGE_TAG $ECR_REGISTRY/${{ secrets.ECR_WEB_REPOSITORY }}:latest
           docker push $ECR_REGISTRY/${{ secrets.ECR_WEB_REPOSITORY }}:$IMAGE_TAG
+          docker push $ECR_REGISTRY/${{ secrets.ECR_WEB_REPOSITORY }}:latest
           echo "WEB_IMAGE=$ECR_REGISTRY/${{ secrets.ECR_WEB_REPOSITORY }}:$IMAGE_TAG" >> $GITHUB_ENV
 
       - name: EC2 배포
