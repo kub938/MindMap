@@ -30,7 +30,9 @@ jobs:
           IMAGE_TAG: ${{ github.sha }}
         run: |
           docker build -t $ECR_REGISTRY/${{ secrets.ECR_API_REPOSITORY }}:$IMAGE_TAG -f apps/api/Dockerfile .
+          docker tag $ECR_REGISTRY/${{ secrets.ECR_API_REPOSITORY }}:$IMAGE_TAG $ECR_REGISTRY/${{ secrets.ECR_API_REPOSITORY }}:latest
           docker push $ECR_REGISTRY/${{ secrets.ECR_API_REPOSITORY }}:$IMAGE_TAG
+          docker push $ECR_REGISTRY/${{ secrets.ECR_API_REPOSITORY }}:latest
           echo "API_IMAGE=$ECR_REGISTRY/${{ secrets.ECR_API_REPOSITORY }}:$IMAGE_TAG" >> $GITHUB_ENV
 
       - name: WEB 이미지 빌드 & ECR 푸시
